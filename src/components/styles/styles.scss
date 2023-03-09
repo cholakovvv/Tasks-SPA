@@ -1,0 +1,73 @@
+body {
+  background-color: #ececec;
+  display: flex;
+
+  .create-employee {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    align-items: center;
+    height: 5vh;
+    width: 18vw;
+    background-color: #38598b;
+    margin-right: 1vw;
+    margin-left: 65vw;
+  }
+
+  .create-task {
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    float: right;
+    height: 5vh;
+    width: 12vw;
+    background-color: #38598b;
+  }
+
+  .create-emp-card-box {
+    margin-top: 12vh;
+    height: 55vh;
+    background-color: #4f81c7;
+    width: 30vw;
+    margin-left: 35vw;
+    border-radius: 10px;
+
+    .birth-date {
+      margin-left: 1vw;
+      border-radius: 5px;
+      margin-top: 1vh;
+    }
+
+    .email {
+      margin-left: 1vw;
+      border-radius: 5px;
+      margin-top: 1vh;
+    }
+
+    .full-name {
+      margin-left: 1vw;
+      border-radius: 5px;
+      margin-top: 3vh;
+    }
+
+    .phone-number {
+      margin-left: 1vw;
+      border-radius: 5px;
+      margin-top: 1vh;
+    }
+
+    .salary {
+      margin-left: 1vw;
+      border-radius: 5px;
+      margin-top: 1vh;
+    }
+
+    .sbmt-emp-btn {
+        background-color: #ececec;
+        color: #4f81c7;
+        margin-top: 2vh;
+        margin-left: 11.5vw;
+    }
+  }
+}
