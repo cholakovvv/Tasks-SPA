@@ -1,6 +1,13 @@
 body {
   background-color: white;
 
+  .employee-info-box {
+    height: 20vh;
+    width: 40vw;
+    background-color: red;
+    position: absolute;
+  }
+
   .emp-tasks-sections {
     display: flex;
 
@@ -22,6 +29,7 @@ body {
       border-radius: 10px;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
     }
+
     .emp-tasks-section-box {
       margin-top: 1vh;
       height: 68.5vh;
@@ -29,22 +37,32 @@ body {
       width: 43vw;
       margin-left: 1vw;
       border-radius: 10px;
+      padding-top: 1vh;
 
-      .list {
+      .emp-list {
         background-color: white;
-        border-radius: 8px;
-        width: 40.5vw;
-        margin-left: 0.7vw;
-        margin-top: 1vw;
-        position: absolute;
+        margin-top: 1.5vh;
+        width: 40.4vw;
+        border-radius: 10px;
+        margin-left: 0.8vw;
+        height: 6.5vh;
         padding-left: 1vw;
 
+        .delete-employee {
+          float: right;
+          margin-right: 1vw;
+          background-color: #f95959;
+        }
+
         .employee-tasks {
-          margin-left: 9.5vw;
+          // margin-left: 16vw;
           background-color: #38598b;
+          float: right;
         }
         .employee-info {
+          float: right;
           margin-left: 1vw;
+          margin-right: 1vw;
           background-color: #38598b;
         }
       }
@@ -64,6 +82,12 @@ body {
     }
   }
 
+  .alert-div {
+    margin-top: 2vh;
+    width: 60vw;
+    margin-left: 20vw;
+  }
+
   .create-employee {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
@@ -72,7 +96,7 @@ body {
     width: 23vw;
     background-color: #38598b;
     margin-right: 1vw;
-    margin-left: 49vw;
+    margin-left: 45vw;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   }
   .create-employee-link {
@@ -102,8 +126,8 @@ body {
   }
 
   .create-emp-card-box {
-    margin-top: 12vh;
-    height: 68vh;
+    margin-top: 3vh;
+    height: 81vh;
     background-color: #4f81c7;
     width: 30vw;
     margin-left: 35vw;
@@ -113,7 +137,7 @@ body {
     .full-name-p {
       color: white;
       font-family: Arial, Helvetica, sans-serif;
-      margin-top: 2vh;
+      margin-top: 1vh;
       margin-left: 1vw;
       font-size: 1.1rem;
     }
@@ -121,7 +145,6 @@ body {
     .emp-input-p {
       color: white;
       font-family: Arial, Helvetica, sans-serif;
-      // margin-top: 2vh;
       margin-left: 1vw;
       font-size: 1.1rem;
     }
@@ -131,11 +154,13 @@ body {
       border-radius: 5px;
       background-color: #e6f0f1;
       width: 28vw;
+      text-decoration: none;
     }
 
     .email {
       margin-left: 1vw;
       border-radius: 5px;
+      text-decoration: none;
     }
 
     .full-name {
@@ -146,11 +171,13 @@ body {
     .phone-number {
       margin-left: 1vw;
       border-radius: 5px;
+      text-decoration: none;
     }
 
     .salary {
       margin-left: 1vw;
       border-radius: 5px;
+      text-decoration: none;
     }
 
     .sbmt-emp-btn {

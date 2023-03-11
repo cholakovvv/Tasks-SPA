@@ -1,15 +1,24 @@
 import '../styles/styles.scss'
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 export const HomeBtn = () => {
+
+  const navigate = useNavigate();
+  const routeChange = () => {
+    let path = `/`;
+    navigate(path);
+  }
 
   return (
       <Button
         variant="contained"
         className='home-btn'
+        onClick={routeChange}
       >
-        <Link to='/' className='create-employee-link'>Home</Link>
+        Home
       </Button>
   )
 }

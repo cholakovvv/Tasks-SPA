@@ -1,22 +1,37 @@
 import '../styles/styles.scss'
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 export const CreateTaskEmployeeBtn = () => {
+
+  const navigate = useNavigate();
+  const routeCrtEmpChange = () => {
+    let path = `/create-employee`;
+    navigate(path);
+  }
+  const routeCrtTaskChange = () => {
+    let path = `/create-task`;
+    navigate(path);
+  }
 
   return (
     <>
       <Button
         variant="contained"
         className='create-employee'
+        onClick={routeCrtEmpChange}
       >
-        <Link to='/create-employee' className='create-employee-link'>Create employee card</Link>
+        Create employee card
       </Button>
+
       <Button
         variant="contained"
         className='create-task'
+        onClick={routeCrtTaskChange}
       >
-        <Link to='/create-task' className='create-employee-link'>Create task</Link>
+        Create task
       </Button>
     </>
   )

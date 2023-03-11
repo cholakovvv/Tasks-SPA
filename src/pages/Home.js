@@ -3,45 +3,24 @@ import '../components/styles/styles.scss';
 import { CreateTaskEmployeeBtn } from '../components/buttons/CreateTaskEmployeeBtn';
 import { EmpSection } from '../components/employees-tasks-section/emp-section/EmployeesSection';
 import { TasksSectionPage } from '../components/employees-tasks-section/tasks-section/TasksSection';
-import { db } from "../config/firebase-config";
-import { useState, useEffect } from 'react';
-import { getDocs, collection } from 'firebase/firestore';
+import { EmpInfo } from '../components/employees-tasks-section/emp-section/emp-info/EmployeeInfo';
+import {useState} from 'react'
+
+const [openEmpInfo, setOpenEmpInfo] = useState(false);
+
+export const openInfoHandler = (e) => {
+  e.preventDefault();
+  setOpenEmpInfo(state => !state);
+}
 
 export const Home = () => {
-
-  // const [employeeList, setEmployeeList] = useState([]);
-
-  // const empCollection = collection(db, 'employee');
-
-  // useEffect(() => {
-  //   const getEmpList = async () => {
-  //     try {
-  //       const data = await getDocs(empCollection);
-  //       const filteredData = data.docs.map((doc) => ({
-  //         ...doc.data(),
-  //         id: doc.id
-  //       }));
-  //       setEmployeeList(filteredData);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-  //   getEmpList();
-  // }, []);
 
   return (
     <>
       <Box >
-        {/* <div>
-          {
-            employeeList.map((emp) => (
-              <div>
-                <h1>{emp.email}</h1>
-              </div>
-            )) 
-          }
-        </div> */}
+
         <CreateTaskEmployeeBtn />
+        <EmpInfo open={openEmpInfo} />
         <Box className='emp-tasks-sections'>
           <EmpSection />
           <TasksSectionPage />
