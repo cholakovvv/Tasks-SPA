@@ -6,11 +6,9 @@ import { useState, useEffect } from 'react';
 import { getDocs, collection, deleteDoc, updateDoc, doc } from 'firebase/firestore';
 import { Box } from '@mui/material';
 import '../../styles/styles.scss';
-import { EmpInfo } from './emp-info/EmployeeInfo';
 
 
 export const EmpSection = () => {
-
 
     const deleteEmployee = async (id) => {
         const empDoc = doc(db, 'employee', id);
@@ -44,20 +42,26 @@ export const EmpSection = () => {
     return (
         <Box className='emp-section' >
             <div className='employees-tasks-title-div'>Employees:</div>
-            <Box className='emp-tasks-section-box'>
-                {
-                    employeeList.map((emp) => (
-                        <List className='emp-list'>
-                            <ListItemText>
-                                {emp.fullName}
-                                <Button variant="contained" className='delete-employee' onClick={() => deleteEmployee(emp.id)}>Delete</Button>
-                                <Button variant="contained" className='employee-info'>Employee info</Button>
-                                <Button variant="contained" className='employee-tasks'>Employee tasks</Button>
-                            </ListItemText>
-                        </List>
-                    ))
-                }
-            </Box>
+                <Box className='emp-tasks-section-box'>
+                    {
+                        employeeList.map((emp) => (
+                            <List className='emp-list'>
+                                <ListItemText>
+                                    <div className='emp-p-div'>
+                                        <p>Full name: {emp.fullName}</p>
+                                        <p>Email: {emp.email}</p>
+                                        <p>Birth date: {emp.birthDate}</p>
+                                        <p>Phone number: {emp.phoneNumber}</p>
+                                        <p>Salary: {emp.salary}</p>
+                                    </div>
+                                    <Button variant="contained" className='employee-tasks'>Employee tasks</Button>
+                                    <Button variant="contained" className='edit-emp'>Edit</Button>
+                                    <Button variant="contained" className='delete-employee' onClick={() => deleteEmployee(emp.id)}>Delete</Button>
+                                </ListItemText>
+                            </List>
+                        ))
+                    }
+                </Box>
         </Box>
     );
 }
