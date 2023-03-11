@@ -54,7 +54,6 @@ export const EmpSection = () => {
                                         <p>Phone number: {emp.phoneNumber}</p>
                                         <p>Salary: {emp.salary}</p>
                                     </div>
-                                    <Button variant="contained" className='employee-tasks'>Employee tasks</Button>
                                     <Button variant="contained" className='edit-emp'>Edit</Button>
                                     <Button variant="contained" className='delete-employee' onClick={() => deleteEmployee(emp.id)}>Delete</Button>
                                 </ListItemText>

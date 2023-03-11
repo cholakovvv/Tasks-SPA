@@ -10,8 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 export const EmpInput = () => {
 
-  const fullNameRegex = /[A-Z][a-z]+ [A-Z][a-z]+/g;
-
   const navigate = useNavigate();
   const routeChange = () => {
     let path = `/`;
