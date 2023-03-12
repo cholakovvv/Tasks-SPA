@@ -1,0 +1,24 @@
+body {
+    background-color: #e3f6f5;
+
+    .all-emps-table {
+        background-color: #00204a;
+        width: 80vw;
+        height: 70vh;
+        border-radius: 3px;
+        margin-left: 9vw;
+        margin-top: 10vh;
+
+        .table-header {
+            background-color: #38598b;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.3rem;
+
+        }
+        .single-data {
+            background-color: #8dc6ff;
+            text-align: center;
+        }
+    }
+}

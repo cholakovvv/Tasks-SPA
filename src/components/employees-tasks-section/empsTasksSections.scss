@@ -1,0 +1,142 @@
+.emp-comp-tasks {
+    margin-top: 1vh;
+    background-color: #8dc6ff;
+    padding-left: 7.2vw;
+    height: 5vh;
+    padding-top: 2vh;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .emp-tasks-sections {
+    display: flex;
+
+    .emp-section {
+      margin-top: 4vh;
+      height: 86vh;
+      background-color: #8ed6ff;
+      width: 45vw;
+      margin-left: 2vw;
+      border-radius: 10px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+
+      .show-all-employees {
+        background-color: #38598b;
+        color: white;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border-radius: 9px;
+        width: 16vw;
+      }
+
+      .emp-alert-div {
+        width: 30vw;
+        margin-left: 7.5vw;
+      }
+    }
+    .tasks-section {
+      margin-top: 4vh;
+      height: 86vh;
+      background-color: #8ed6ff;
+      width: 45vw;
+      margin-left: 5vw;
+      border-radius: 10px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+
+    }
+    
+
+    .emp-tasks-section-box {
+      margin-top: 1vh;
+      height: 68.5vh;
+      background-color: #d5eeff;
+      width: 43vw;
+      margin-left: 1vw;
+      border-radius: 10px;
+      padding-top: 1vh;
+      overflow: auto;
+
+      .task-list {
+        background-color: white;
+        margin-top: 1vh;
+        width: 40.3vw;
+        border-radius: 10px;
+        margin-left: 0.6vw;
+        height: 37vh;
+        padding-left: 1vw;
+
+        .completed-task {
+          background-color: #2eb872;
+          margin-right: 1vh;
+        }
+
+        .edit-task {
+          width: 6vw;
+          background-color: #53a8b6;
+          margin-right: 1vh;
+        }
+
+        .delete-task {
+          width: 6vw;
+          margin-right: 1vw;
+          background-color: #f95959;
+        }
+      }
+
+      .emp-list {
+        background-color: white;
+        margin-top: 1vh;
+        width: 40.3vw;
+        border-radius: 10px;
+        margin-left: 0.6vw;
+        height: 48vh;
+        padding-left: 1vw;
+
+        .editInput {
+          height: 3vh;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 1rem;
+        }
+
+        .emp-p-div {
+          width: 18vw;
+           
+        }
+        
+
+        .edit-emp {
+          width: 6vw;
+          background-color: #53a8b6;
+          margin-right: 1vh;
+        }
+
+        .delete-employee {
+          width: 6vw;
+          margin-right: 1vw;
+          background-color: #f95959;
+        }
+      }
+    }
+    .editTask {
+      height: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    }
+    .employees-tasks-title-div {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 2rem;
+      background-color: #38598b;
+      width: 18vw;
+      height: 6.5vh;
+      border-radius: 8px;
+      margin-top: 1vh;
+      margin-left: 13vw;
+      text-align: center;
+      padding-top: 1vh;
+      color: white;
+    }
+
+    .search-icon {
+        margin-left: 1vw;
+    }
+  }

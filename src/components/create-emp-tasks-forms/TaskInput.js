@@ -1,10 +1,9 @@
 import { TextField } from "@mui/material";
-import '../styles/styles.scss';
+import './createEmpTask.scss';
 import Button from '@mui/material/Button';
 import { db } from '../../config/firebase-config';
 import { useState, useEffect } from 'react';
 import { getDocs, collection, addDoc } from 'firebase/firestore';
-import { Link } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import Select from '@mui/material/Select';
@@ -14,10 +13,7 @@ import TextareaAutosize from '@mui/base/TextareaAutosize';
 
 export const TaskInput = () => {
 
-  let bestEmployees = {};
-
-const dueDateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
-
+  const dueDateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
 
   const [newTaskTitle, setNewTaskTitle] = useState('');
   const [newTaskDescription, setNewTaskDescription] = useState('');
@@ -57,7 +53,7 @@ const dueDateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4
 
     e.preventDefault();
     setMessage('');
-    if(!newTaskDueDate.match(dueDateRegex)){
+    if (!newTaskDueDate.match(dueDateRegex)) {
       setMessage({ error: true, msg: 'The due date digits must be separated by " / ", example: 12/03/2023!' });
       return;
     }
@@ -96,7 +92,7 @@ const dueDateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4
           )
         }
       </div>
-      <Box className='create-emp-card-box'>
+      <Box className='create-task-card-box'>
         <p className="full-name-p">Title</p>
         <TextField
           className="full-name"
@@ -105,7 +101,7 @@ const dueDateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4
           onChange={(e) => setNewTaskTitle(e.target.value)}
         />
         <p className="emp-input-p">Description</p>
-        
+
         <TextareaAutosize
           className="email"
           maxRows={1}
@@ -122,7 +118,7 @@ const dueDateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4
           {
             employeeList.map((emp) => (
               <MenuItem value={emp.fullName}>{emp.fullName}</MenuItem>
-              
+
             ))
           }
         </Select>

@@ -1,0 +1,144 @@
+body {
+  background-color: #e3f6f5;
+
+  .alert-div {
+    margin-top: 2vh;
+    width: 60vw;
+    margin-left: 20vw;
+  }
+
+  .create-task-card-box {
+    height: 70vh;
+    background-color: #4f81c7;
+    width: 30vw;
+    margin-left: 35vw;
+    border-radius: 10px;
+    position: absolute;
+
+    .full-name-p {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-top: 1vh;
+      margin-left: 1vw;
+      font-size: 1.1rem;
+    }
+
+    .emp-input-p {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 1vw;
+      font-size: 1.1rem;
+    }
+
+    .assigned-emp-select {
+      margin-left: 1vw;
+      border-radius: 5px;
+      background-color: #e6f0f1;
+      width: 28vw;
+      text-decoration: none;
+    }
+
+    .email {
+      margin-left: 1vw;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .full-name {
+      margin-left: 1vw;
+      border-radius: 5px;
+    }
+
+    .phone-number {
+      margin-left: 1vw;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .sbmt-emp-btn {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      height: 5vh;
+      width: 10vw;
+      margin-left: 19vh;
+      margin-top: 1vh;
+      background-color: #38598b;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .create-emp-card-box {
+    height: 96vh;
+    background-color: #4f81c7;
+    width: 30vw;
+    margin-left: 35vw;
+    border-radius: 10px;
+    position: absolute;
+
+    .full-name-p {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-top: 1vh;
+      margin-left: 1vw;
+      font-size: 1.1rem;
+    }
+
+    .emp-input-p {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 1vw;
+      font-size: 1.1rem;
+    }
+
+    .assigned-emp-select {
+      margin-left: 1vw;
+      border-radius: 5px;
+      background-color: #e6f0f1;
+      width: 28vw;
+      text-decoration: none;
+    }
+    .birth-date {
+      margin-left: 1vw;
+      border-radius: 5px;
+      background-color: #e6f0f1;
+      width: 28vw;
+      text-decoration: none;
+    }
+
+    .email {
+      margin-left: 1vw;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .full-name {
+      margin-left: 1vw;
+      border-radius: 5px;
+    }
+
+    .phone-number {
+      margin-left: 1vw;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .salary {
+      margin-left: 1vw;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .sbmt-emp-btn {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      height: 5vh;
+      width: 10vw;
+      margin-left: 19vh;
+      margin-top: 1vh;
+      background-color: #38598b;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+}

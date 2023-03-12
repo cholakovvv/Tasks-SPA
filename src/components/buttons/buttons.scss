@@ -1,0 +1,36 @@
+body {
+    background-color: #e3f6f5;
+
+.create-employee {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 5vh;
+    width: 23vw;
+    background-color: #38598b;
+    margin-right: 1vw;
+    margin-left: 45vw;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .create-task {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 5vh;
+    width: 15vw;
+    background-color: #38598b;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .home-btn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 5vh;
+    width: 10vw;
+    margin-left: 1vh;
+    background-color: #38598b;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  }
+}

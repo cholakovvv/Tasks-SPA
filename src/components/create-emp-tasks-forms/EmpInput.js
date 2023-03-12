@@ -1,5 +1,5 @@
 import { Box, TextField } from "@mui/material";
-import '../styles/styles.scss';
+import './createEmpTask.scss';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
@@ -23,6 +23,7 @@ export const EmpInput = () => {
   const [birthDate, setBirthDate] = useState('');
   const [phoneNum, setPhoneNum] = useState(0);
   const [salary, setSalary] = useState(0);
+  const [doneTasks, setDoneTasks] = useState(0);
 
   const [message, setMessage] = useState({ error: false, msg: '' });
 
@@ -41,11 +42,18 @@ export const EmpInput = () => {
   const onChangeSalary = (e) => {
     setSalary(e.target.value)
   }
+  const onChangeDoneTasks = (e) => {
+    setDoneTasks(e.target.value)
+  }
 
   const onSubmitEmployee = async (e) => {
 
     e.preventDefault();
     setMessage('');
+    if (fullName == '' || email == '' || birthDate == '' || phoneNum == '' || salary == '' || doneTasks == '') {
+      setMessage({ error: true, msg: 'All fields are mandatory!' });
+      return;
+    }
     if (!fullName.match(fullNameRegex)) {
       setMessage({ error: true, msg: 'Name and family must start with capital letter!' });
       return;
@@ -59,10 +67,6 @@ export const EmpInput = () => {
       return;
     }
 
-    if (fullName == '' || email == '' || birthDate == '' || phoneNum == '' || salary == '') {
-      setMessage({ error: true, msg: 'All fields are mandatory!' });
-      return;
-    }
 
     const newEmp = {
       fullName,
@@ -70,6 +74,7 @@ export const EmpInput = () => {
       birthDate,
       phoneNum,
       salary,
+      doneTasks,
     };
 
     try {
@@ -83,6 +88,7 @@ export const EmpInput = () => {
     setBirthDate('');
     setPhoneNum('');
     setSalary('');
+    setDoneTasks('');
   }
 
   return (
@@ -142,6 +148,15 @@ export const EmpInput = () => {
           type="number"
           sx={{ backgroundColor: '#e6f0f1', width: '28vw' }}
           onChange={onChangeSalary}
+
+        />
+        <p className="emp-input-p">Done tasks</p>
+        <TextField
+          className="salary"
+          variant="outlined"
+          type="number"
+          sx={{ backgroundColor: '#e6f0f1', width: '28vw' }}
+          onChange={onChangeDoneTasks}
 
         />
 

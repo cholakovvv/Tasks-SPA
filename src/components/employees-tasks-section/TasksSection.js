@@ -1,55 +1,61 @@
 import { Box } from '@mui/material';
-import '../styles/styles.scss';
+import './empsTasksSections.scss';
 import { useState, useEffect } from 'react';
 import ListItemText from '@mui/material/ListItemText';
 import List from '@mui/material/List';
 import Button from '@mui/material/Button';
 import TaskDataService from '../../services/taskServices';
-import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
-
-
-let bestEmployees = {};
+import { db } from '../../config/firebase-config';
+import { doc, updateDoc } from 'firebase/firestore';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
 
 export const TasksSectionPage = () => {
-  
-  let bestEmpsArr;
 
-  // const [clicked, setClicked] = useState(false);
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
+  const dueDateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
 
-  // const style = {
-  //   position: 'absolute',
-  //   top: '50%',
-  //   left: '50%',
-  //   transform: 'translate(-50%, -50%)',
-  //   width: 400,
-  //   height: 300,
-  //   bgcolor: 'background.paper',
-  //   border: '2px solid #000',
-  //   boxShadow: 24,
-  //   p: 4,
-  //   borderRadius: '10px',
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+  const [newAssEmp, setNewAssEmp] = useState('');
+  const [newDueDate, setNewDueDate] = useState('');
 
-  // };
+  const [taskId, setTaskId] = useState('');
+  const [message, setMessage] = useState({ error: false, msg: '' });
 
-  const completedTask = (task) => {
+  const [mapState, setMapState] = useState(null);
+  let editMap = new Map();
 
-    if (!bestEmployees.hasOwnProperty(task.assignedEmp)) {
-      bestEmployees[task.assignedEmp] = 1
-    } else {
-      bestEmployees[task.assignedEmp] += 1;
+  const editTask = async (id) => {
+    editMap.set(id, true);
+    setMapState(editMap);
+  }
+
+  const saveEdit = async (id) => {
+
+    setMessage('');
+    if (newTitle == '' || newDescription == '' || newAssEmp == '' || newDueDate == '') {
+      setMessage({ error: true, msg: 'All fields are mandatory!' });
+      return;
+    }
+    if (!newDueDate.match(dueDateRegex)) {
+      setMessage({ error: true, msg: 'The date digits must be separated by " / ", example: 12/02/1999!' });
+      return;
     }
 
-  }
+    const empDocRef = doc(db, 'tasks', taskId);
+    await updateDoc(empDocRef, {
+      title: newTitle,
+      description: newDescription,
+      assignedEmp: newAssEmp,
+      dueDate: newDueDate,
+    });
 
-  const bestEmployeesFunc = () => {
-    bestEmpsArr = Object.entries(bestEmployees).sort(([, a], [, b]) => b - a);
-    setClicked(true);
+    if (newTitle !== '' && newDescription !== '' && newAssEmp !== '' && newDueDate !== '') {
+      editMap.set(id, false);
+      setMapState(editMap);
+    }
   }
-
 
   const [tasks, setTasks] = useState([]);
 
@@ -71,46 +77,62 @@ export const TasksSectionPage = () => {
     }
   }
 
-
   return (
-      <Box className='tasks-section' >
-        {/* <div className='best-emps'>
-          <Button onClick={bestEmployeesFunc} sx={{color: 'white'}} className='best-emp-btn'>Top employees</Button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography sx={{ marginLeft: '8vw'}} >
-                Top employees:
-              </Typography>
-              
-              
-            </Box>
-          </Modal>
-        </div> */}
-        <div className='employees-tasks-title-div'>Tasks:</div>
-        <Box className='emp-tasks-section-box' >
-          {
-            tasks.map((task) => (
-              <List className='task-list'>
-                <ListItemText>
-                  <div className='emp-p-div'>
-                    <p>Title: {task.title}</p>
-                    <p>Description: {task.description}</p>
-                    <p>Assigned employee: {task.assignedEmp}</p>
-                    <p>Due date: {task.dueDate}</p>
-                  </div>
-                  <Button variant="contained" className='completed-task' onClick={() => completedTask(task)}>Complete</Button>
-                  <Button variant="contained" className='edit-task'>Edit</Button>
-                  <Button variant="contained" className='delete-task' onClick={() => deleteTask(task.id)}>Delete</Button>
-                </ListItemText>
-              </List>
-            ))
-          }
-        </Box>
+    <Box className='tasks-section' >
+      <div className="emp-alert-div">
+        {
+          message?.msg && (
+            <Alert
+              severity={message?.error ? 'error' : null}
+              dismissible
+              onClose={() => setMessage('')}
+            >
+              {' '}
+              {message?.msg}
+            </Alert>
+          )
+        }
+      </div>
+      <div className='employees-tasks-title-div'>Tasks:</div>
+      <IconButton className='search-icon'>
+                <SearchIcon /> Search 
+                </IconButton>
+      <Box className='emp-tasks-section-box' >
+        {
+          tasks.map((task) => (
+            <List className='task-list'>
+              <ListItemText>
+                {
+                  mapState?.get(task.id) ?
+                    <>
+                      <div className='emp-p-div'>
+                        <p>Title: <input className='editTask' onChange={(e) => setNewTitle(e.target.value)} /></p>
+                        <p>Description: <input className='editTask' onChange={(e) => setNewDescription(e.target.value)} /></p>
+                        <p>Assigned employee: <input className='editTask' onChange={(e) => setNewAssEmp(e.target.value)} /></p>
+                        <p>Due date: <input className='editTask' onChange={(e) => setNewDueDate(e.target.value)} /></p>
+                        <p>Id: <input className='editTask' onChange={(e) => setTaskId(e.target.value)} /></p>
+
+                      </div>
+                      <Button variant="contained" className='edit-task' onClick={saveEdit}>Save</Button>
+                    </>
+                    :
+                    <>
+                      <div className='emp-p-div'>
+                        <p>Title: {task.title}</p>
+                        <p>Description: {task.description}</p>
+                        <p>Assigned employee: {task.assignedEmp}</p>
+                        <p>Due date: {task.dueDate}</p>
+                        <p>Id: {task.id}</p>
+                      </div>
+                      <Button variant="contained" className='edit-task' onClick={() => editTask(task.id)}>Edit</Button>
+                      <Button variant="contained" className='delete-task' onClick={() => deleteTask(task.id)}>Delete</Button>
+                    </>
+                }
+              </ListItemText>
+            </List>
+          ))
+        }
       </Box>
+    </Box>
   )
 }
