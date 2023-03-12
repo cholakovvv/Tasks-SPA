@@ -1,5 +1,39 @@
 body {
-  background-color: white;
+  background-color: #e3f6f5;
+
+  .best-emps {
+    background-color: #38598b;
+    width: 10vw;
+    border-radius: 9px;
+    margin-top: 0.8vh;
+    margin-left: 0.7vh;
+  }
+
+  .header {
+    display: flex;
+
+    .best-emp-btn {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      height: 5vh;
+      width: 15vw;
+      background-color: #38598b;
+      color: white;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+
+    }
+  }
+
+  .emp-comp-tasks {
+    margin-top: 1vh;
+    background-color: #8dc6ff;
+    padding-left: 7.2vw;
+    height: 5vh;
+    padding-top: 2vh;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
   .emp-tasks-sections {
     display: flex;
@@ -21,7 +55,9 @@ body {
       margin-left: 5vw;
       border-radius: 10px;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+
     }
+    
 
     .emp-tasks-section-box {
       margin-top: 1vh;
@@ -38,9 +74,15 @@ body {
         margin-top: 1vh;
         width: 40.3vw;
         border-radius: 10px;
-        margin-left: 0.8vw;
+        margin-left: 0.6vw;
         height: 30vh;
         padding-left: 1vw;
+
+        .completed-task {
+          background-color: #2eb872;
+          margin-right: 1vh;
+          margin-left: 9vw;
+        }
 
         .edit-task {
           width: 6vw;
@@ -53,13 +95,6 @@ body {
           margin-right: 1vw;
           background-color: #f95959;
         }
-
-        .add-employee {
-          margin-left: 6.5vw;
-          width: 13vw;
-          background-color: #38598b;
-          margin-right: 1vh;
-        }
       }
 
       .emp-list {
@@ -67,7 +102,7 @@ body {
         margin-top: 1vh;
         width: 40.3vw;
         border-radius: 10px;
-        margin-left: 0.8vw;
+        margin-left: 0.6vw;
         height: 35vh;
         padding-left: 1vw;
 
@@ -156,6 +191,7 @@ body {
     border-radius: 10px;
     position: absolute;
 
+    
     .full-name-p {
       color: white;
       font-family: Arial, Helvetica, sans-serif;
@@ -163,14 +199,21 @@ body {
       margin-left: 1vw;
       font-size: 1.1rem;
     }
-
+    
     .emp-input-p {
       color: white;
       font-family: Arial, Helvetica, sans-serif;
       margin-left: 1vw;
       font-size: 1.1rem;
     }
-
+    
+    .assigned-emp-select {
+      margin-left: 1vw;
+      border-radius: 5px;
+      background-color: #e6f0f1;
+      width: 28vw;
+      text-decoration: none;
+    }
     .birth-date {
       margin-left: 1vw;
       border-radius: 5px;

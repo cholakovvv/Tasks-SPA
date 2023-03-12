@@ -1,5 +1,5 @@
 import '../components/styles/styles.scss';
-import { EmpInput } from '../components/create-emp-tasks-forms/create-employee-card-form/EmpInput'
+import { EmpInput } from '../components/create-emp-tasks-forms/EmpInput'
 import { CreateTaskEmployeeBtn } from '../components/buttons/CreateTaskEmployeeBtn';
 import { HomeBtn } from '../components/buttons/HomeBtn';
 
@@ -9,7 +9,7 @@ export const CreateEmployeePage = () => {
     <>
       <HomeBtn />
       <CreateTaskEmployeeBtn />
-      <EmpInput />
+      <EmpInput id={empID} setEmpId={setEmpId}/>
     </>
   )
 }
