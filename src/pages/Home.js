@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import '../components/home-top-5-style/homeTop5Style.scss';
+import '../components/styles/homeTop5Style.scss';
 import { CreateTaskEmployeeBtn } from '../components/buttons/CreateTaskEmployeeBtn';
 import { EmpSection } from '../components/employees-tasks-section/EmployeesSection';
 import { TasksSectionPage } from '../components/employees-tasks-section/TasksSection';

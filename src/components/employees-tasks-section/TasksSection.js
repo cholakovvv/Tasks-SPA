@@ -8,8 +8,6 @@ import TaskDataService from '../../services/taskServices';
 import { db } from '../../config/firebase-config';
 import { doc, updateDoc } from 'firebase/firestore';
 import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 
 export const TasksSectionPage = () => {
 
@@ -94,9 +92,6 @@ export const TasksSectionPage = () => {
         }
       </div>
       <div className='employees-tasks-title-div'>Tasks:</div>
-      <IconButton className='search-icon'>
-                <SearchIcon /> Search 
-                </IconButton>
       <Box className='emp-tasks-section-box' >
         {
           tasks.map((task) => (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../components/styles/allEmps.scss'
-import '../components/home-top-5-style/homeTop5Style.scss';
+import '../components/styles/homeTop5Style.scss';
 import EmpDataService from '../services/empServices';
 import { HomeBtn } from '../components/buttons/HomeBtn';
 
